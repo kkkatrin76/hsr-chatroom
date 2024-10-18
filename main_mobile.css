@@ -34,6 +34,7 @@
     }
 
     .c1 .char-item button {
+        border: solid 1px rgb(95,97,105);
         padding: 6px 10px;
         font-size: 1em;
     }
@@ -67,6 +68,7 @@
         padding: 10px 20px 5px;
         height: fit-content;
         font-size: 0.9em;
+        border-bottom: solid 1px #b7b7b7;
     }
 
     .chat-list-wrapper {
@@ -117,6 +119,7 @@
 
     .c2 .choice-list {
         padding: 3px 15px;
+        border-top: solid 1px #b7b7b7;
     }
 
     .c2 .choice-list .choice-btn {
