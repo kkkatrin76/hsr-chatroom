@@ -239,7 +239,7 @@ function constructChatList() {
                 <button onclick="selectCharacter('${c.key}')">
                     <img class="char-pic" src="${c.pfp}"></img>
                     <div class="char-name">${c.name}</div>
-                    <div class="char-arrow">\></div>
+                    <img class="char-arrow" src="icons/chevron.svg" />
                 </button>
             </div>
         `;
