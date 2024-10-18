@@ -90,22 +90,23 @@ function initChats() {
                 type: "text",
                 dir: "in",
                 content: `${name}`,
+                timeout: 4000
             },
             {
                 type: "text",
                 dir: "in",
-                content: `Meow?`,
+                content: `Meow?`
             },
             {
                 type: "choice",
                 content: [
                     {
-                        "key": "jy1-1",
-                        "text": "m. meow?"
+                        key: "jy1-1",
+                        text: "m. meow?"
                     },
                     {
-                        "key": "jy1-2",
-                        "text": "???"
+                        key: "jy1-2",
+                        text: "???"
                     }
                 ],
             },
@@ -120,7 +121,109 @@ function initChats() {
                 content: `emote/jingyuan5.png`
             },
         ],
-        blade: []
+        blade: [
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b1-1",
+                        text: "meow"
+                    }
+                ],
+            },
+            {
+                type: "pause",
+                timeout: 3000
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b2-1",
+                        text: "meow?"
+                    }
+                ],
+            },
+            {
+                type: "pause",
+                timeout: 1000
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b3-1",
+                        text: "MEOW!!!!!!!!!!!"
+                    }
+                ],
+            },
+            {
+                type: "emote",
+                dir: "in",
+                content: `emote/blade4.png`
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `What now`,
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b4-1",
+                        text: "i 💙 u"
+                    }
+                ],
+            },
+            {
+                type: "pause",
+                timeout: 3000
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `Ok`,
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b5-1",
+                        emote: "emote/tuskpir1.png"
+                    },
+                    {
+                        key: "b5-2",
+                        emote: "emote/pompom1.png"
+                    }
+                ],
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `Alright, alright`,
+                timeout: 4000
+            },
+            {
+                type: "emote",
+                dir: "in",
+                content: `emote/pompom2.png`,
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `Does that suffice?`,
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "b6-1",
+                        emote: "emote/pompom3.png"
+                    }
+                ],
+            },
+        ]
     }
 
     initChars();
@@ -310,6 +413,8 @@ function appendChatHistory(index) {
         }
     }
 
+    let choiceIsEmote = false;
+
     switch (chat.type) {
         case "ts":
             chatHTML += `
@@ -411,6 +516,7 @@ function appendChatHistory(index) {
                 if (c.text) {
                     choiceHTML += `<button class="choice-btn" onclick="selectChoice('${c.key}')">${c.text}</button>`;
                 } else if (c.emote) {
+                    choiceIsEmote = true;
                     choiceHTML += `<button class="choice-btn emote" onclick="selectChoice('${c.key}')"><img src="${c.emote}"></img></button>`;
                 } else if (c.pic) {
                     choiceHTML += `<button class="choice-btn emote" onclick="selectChoice('${c.key}')"><img src="${c.pic}"></img></button>`;
@@ -462,7 +568,9 @@ function appendChatHistory(index) {
     // hide or show chat list or choice list accordingly
     if (choiceHTML) {
         playTimeout = setTimeout(() => {
-            // chatListDiv.classList.add("hidden");
+            if (choiceIsEmote) {
+                choiceListDiv.classList.add("flex");
+            }
             callListDiv.classList.add("hidden");
             choiceListDiv.classList.remove("hidden");
 
@@ -474,10 +582,12 @@ function appendChatHistory(index) {
             clearTimeout(playTimeout);
         }, timeoutMs);
     } else if (callHTML) {
+        choiceListDiv.classList.remove("flex");
         chatListDiv.classList.add("hidden");
         callListDiv.classList.remove("hidden");
         choiceListDiv.classList.add("hidden");
     } else if (chatHTML) {
+        choiceListDiv.classList.remove("flex");
         chatListDiv.classList.remove("hidden");
         callListDiv.classList.add("hidden");
         choiceListDiv.classList.add("hidden");

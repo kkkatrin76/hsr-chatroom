@@ -231,7 +231,7 @@ button {
     margin-right: 10px;
     width: 22px;
     height: 22px;
-    margin-top: -5px;
+    margin-top: -1px;
 }
 
 .c2 .chat-list .chat-bubble {
@@ -285,7 +285,6 @@ button {
 }
 .c2 .chat-list .chat-bubble.out .message {
     background-color: rgb(206,190,154);
-    color: rgb(54,61,77);
     margin: 5px 0 5px auto;
     box-shadow: 1px 2px rgb(145, 145, 145);
     border-radius: 10px 0 10px 10px;
@@ -299,6 +298,9 @@ button {
     background-color: rgb(201, 201, 201);
     border-top: solid 2px #b7b7b7;
     margin: auto 0 0 0;
+}
+.c2 .choice-list.flex {
+    display: flex;
 }
 
 .c2 .call-list {
@@ -334,6 +336,9 @@ button {
 }
 .c2 .choice-list .choice-btn.emote img {
     height: 100px;
+}
+.c2 .choice-list.flex .choice-btn {
+    margin-right: 20px;
 }
 
 .c2 .call-list {
@@ -387,7 +392,7 @@ button {
     color: #fff;
     vertical-align: bottom;
     font-size: 0.6em;
-    text-align: start;
+    text-align: end;
     position: fixed;
 }
 
@@ -397,7 +402,7 @@ button {
     left: 10px;
     bottom: 10px;
     vertical-align: bottom;
-    text-align: end;
+    text-align: start;
     color: rgb(205,178,130);
 }
 
