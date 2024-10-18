@@ -57,6 +57,7 @@
 
     .c2 {
         width: 58%;
+        height: 76%;
     }
 
     .c2 .chat-unselected img {
@@ -73,7 +74,7 @@
     }
 
     .chat-list-wrapper {
-        height: 82%;
+        height: 80%;
     }
 
     .c2 .chat-list {
