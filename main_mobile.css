@@ -48,8 +48,8 @@
     }
 
     .c2-shadow {
-        left: calc(26% + 10px);
-        width: 55%;
+        left: calc(26% + 20px);
+        width: 58%;
         height: 76%;
     }
 
@@ -60,7 +60,7 @@
     .c2 .chat-unselected img {
         width: 50px;
         height: 50px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
 
     .chat-list-wrapper {
