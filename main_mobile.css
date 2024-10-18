@@ -3,17 +3,39 @@
         font-size: 0.7em;
     }
 
+    .header {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 1em;
+        display: flex;
+    }
+    .header .subtext {
+        height: fit-content;
+        margin: auto 0;
+    }
+    .header img {
+        width: 20px;
+        margin-right: 5px;
+        filter: brightness(0) saturate(100%) invert(84%) sepia(17%) saturate(603%) hue-rotate(351deg) brightness(103%) contrast(98%);
+    }
+
     .content {
-        background-image: linear-gradient(to right, rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.7), rgba(0, 16, 62, 0.6), rgba(0,0,0,0));
+        /* background-image: linear-gradient(to right, rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.7), rgba(0, 16, 62, 0.6), rgba(0,0,0,0)); */
         width: 100%;
     }
 
     .c1 {
         width: 26%;
+        padding: 8px 0 0 0;
+    }
+
+    .c1 #char-list {
+        padding: 0;
     }
 
     .c1 .char-item button {
-        padding: 10px 15px;
+        padding: 6px 10px;
+        font-size: 1em;
     }
 
     .c1 .char-item .char-pic {
@@ -25,8 +47,20 @@
         max-height: 40px;
     }
 
+    .c2-shadow {
+        left: calc(26% + 10px);
+        width: 55%;
+        height: 76%;
+    }
+
     .c2 {
         width: 58%;
+    }
+
+    .c2 .chat-unselected img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
     }
 
     .chat-list-wrapper {
