@@ -1,0 +1,91 @@
+@media only screen and (min-device-width: 375px) and (max-device-width: 890px) and (orientation: landscape) {
+    html {
+        font-size: 0.7em;
+    }
+
+    .content {
+        background-image: linear-gradient(to right, rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.8), rgba(0, 16, 62, 0.7), rgba(0, 16, 62, 0.6), rgba(0,0,0,0));
+        width: 100%;
+    }
+
+    .c1 {
+        width: 26%;
+    }
+
+    .c1 .char-item button {
+        padding: 10px 15px;
+    }
+
+    .c1 .char-item .char-pic {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        max-height: 40px;
+        min-width: 40px;
+        max-height: 40px;
+    }
+
+    .c2 {
+        width: 58%;
+    }
+
+    .chat-list-wrapper {
+        height: 72%;
+    }
+
+    .c2 .chat-list {
+        margin: 10px 0;
+    }
+
+    .c2 .chat-list .chat-ts {
+        font-size: 0.9em;
+        margin: 10px auto;
+        width: fit-content;
+    }
+
+    .c2 .chat-list .chat-notif {
+        padding: 2px 8px;
+        margin: 10px auto;
+        width: fit-content;
+        background-color: rgb(102 137 82 / 80%);
+        border-radius: 2px;
+    }
+
+    .c2 .chat-list .chat-bubble .char-pic {
+        width: 40px;
+        height: 40px;
+    }
+
+    .c2 .chat-list .chat-bubble .message {
+        padding: 8px 15px;
+    }
+
+    .c2 .chat-list .chat-bubble .pic {
+        width: 200px;
+        border-radius: 10px;
+        margin: 5px;
+    }
+
+    .c2 .choice-list .choice-btn {
+        padding: 10px 20px;
+    }
+
+    .c2 .call-list {
+        height: 84%;
+        padding: 15px 30px;
+    }
+
+    .c2 .call-list .tray .icon img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .c2 .call-list .message.out {
+        margin: 15px 0;
+    }
+
+    .c2 .call-timer {
+        font-size: 0.65em;
+        padding-top: 10px;
+    }
+}
