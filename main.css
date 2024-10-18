@@ -386,7 +386,7 @@ button {
     color: #fff;
     vertical-align: bottom;
     font-size: 0.6em;
-    text-align: end;
+    text-align: start;
     position: fixed;
 }
 
@@ -395,6 +395,8 @@ button {
     font-size: 0.6em;
     right: 10px;
     bottom: 10px;
+    vertical-align: bottom;
+    text-align: end;
     color: rgb(205,178,130);
 }
 
