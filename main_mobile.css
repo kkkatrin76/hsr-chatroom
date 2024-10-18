@@ -63,12 +63,19 @@
         margin-bottom: 10px;
     }
 
+    .c2 .chat-info {
+        padding: 10px 20px 5px;
+        height: fit-content;
+        font-size: 0.9em;
+    }
+
     .chat-list-wrapper {
-        height: 72%;
+        height: 75%;
     }
 
     .c2 .chat-list {
-        margin: 10px 0;
+        margin: 0 10px;
+        padding: 0 10px;
     }
 
     .c2 .chat-list .chat-ts {
@@ -77,12 +84,19 @@
         width: fit-content;
     }
 
+    .c2 .chat-list .chat-notif img {
+        margin-right: 3px;
+        width: 16px;
+        height: 16px;
+        margin-top: -1px;
+      }
+
     .c2 .chat-list .chat-notif {
-        padding: 2px 8px;
         margin: 10px auto;
-        width: fit-content;
-        background-color: rgb(102 137 82 / 80%);
-        border-radius: 2px;
+    }
+
+    .c2 .chat-list .chat-bubble {
+        margin: 10px 0;
     }
 
     .c2 .chat-list .chat-bubble .char-pic {

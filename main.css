@@ -100,6 +100,8 @@ button {
     background-position: right;
     background-repeat: no-repeat;
     background-blend-mode: darken;
+    background-origin: border-box;
+    background-size: contain;
 }
 
 .c1 .char-item button:hover,
