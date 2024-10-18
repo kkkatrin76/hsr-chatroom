@@ -382,7 +382,7 @@ button {
 
 .credits {
     bottom: 10px;
-    right: 10px;
+    left: 10px;
     color: #fff;
     vertical-align: bottom;
     font-size: 0.6em;
@@ -393,7 +393,7 @@ button {
 #version {
     position: fixed;
     font-size: 0.6em;
-    left: 10px;
+    right: 10px;
     bottom: 10px;
     color: rgb(205,178,130);
 }
