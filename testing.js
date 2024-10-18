@@ -1,4 +1,4 @@
-const version = "1.8";
+const version = "2.0";
 const defaultTimeoutMs = 1500;
 const defaultChoiceTimeoutMs = 2000;
 
@@ -69,17 +69,17 @@ function initChats() {
             {
                 type: "notif",
                 dir: "in",
-                content: `🦁 Ko Yuan has poked you`,
+                content: `🦁 Ko Yuan 🧡 has poked you`,
             },
             {
                 type: "notif",
                 dir: "in",
-                content: `🦁 Ko Yuan has poked you`,
+                content: `🦁 Ko Yuan 🧡 has poked you`,
             },
             {
                 type: "notif",
                 dir: "in",
-                content: `🦁 Ko Yuan has poked you`,
+                content: `🦁 Ko Yuan 🧡 has poked you`,
             },
             {
                 type: "text",
@@ -132,7 +132,7 @@ function initChars() {
     chars = [
         {
             key: "jingyuan",
-            name: "🦁 Ko Yuan",
+            name: "🦁 Ko Yuan 🧡",
             pfp: "pfp/jingyuan1.png",
             chatpfp: "pfp/jingyuan1.png",
             signature: "A good day for a nap...",
