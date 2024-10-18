@@ -55,7 +55,7 @@ function getName() {
 
 function initChats() {
     chats = {
-        "jingyuan": [
+        jingyuan: [
             {
                 type: "text",
                 dir: "in",
@@ -223,6 +223,51 @@ function initChats() {
                     }
                 ],
             },
+        ],
+        sunday: [
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "su1-1",
+                        text: "have your feathers molted yet?"
+                    }
+                ],
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `Indeed it has.`,
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `In fact, they <i>just</i> did.`,
+            },
+            {
+                type: "choice",
+                content: [
+                    {
+                        key: "su2-1",
+                        text: "be there in an hour to pamper my favorite halovian ❤️"
+                    }
+                ],
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `Oh my. Well, if it isn't too much of a trouble, that would be lovely.`,
+            },
+            {
+                type: "text",
+                dir: "in",
+                content: `I'll have your favorite snacks prepared.`,
+            },
+            {
+                type: "emote",
+                dir: "in",
+                content: `emote/sunday1.png`,
+            },
         ]
     }
 
@@ -243,11 +288,19 @@ function initChars() {
         },
         {
             key: "blade",
-            name: "🗡️🐈‍⬛",
+            name: "🗡️ my sad little meow meow 🐈‍⬛",
             pfp: "pfp/blade1.png",
             chatpfp: "pfp/blade1.png",
             signature: "",
             chats: JSON.parse(JSON.stringify(chats.blade))
+        },
+        {
+            key: "sunday",
+            name: "🐓🪽😇",
+            pfp: "pfp/sunday1.png",
+            chatpfp: "pfp/sunday1.png",
+            signature: "If you are born weak, which god should you turn to for solace?",
+            chats: JSON.parse(JSON.stringify(chats.sunday))
         },
     ];
 
