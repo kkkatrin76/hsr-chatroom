@@ -96,6 +96,10 @@ button {
     font-weight: 400;
     border: solid 2px rgb(95,97,105);
     margin-bottom: 15px;
+    background-image: url(icons/express.png);
+    background-position: right;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
 }
 
 .c1 .char-item button:hover,
