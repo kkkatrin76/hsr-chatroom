@@ -70,7 +70,7 @@
     }
 
     .chat-list-wrapper {
-        height: 80%;
+        height: 85%;
     }
 
     .c2 .chat-list {
@@ -89,7 +89,7 @@
         margin-right: 3px;
         width: 16px;
         height: 16px;
-        margin-top: 0px;
+        margin-top: 2px;
       }
 
     .c2 .chat-list .chat-notif {
@@ -117,12 +117,12 @@
 
     .c2 .choice-list {
         padding: 3px 15px;
-        font-size: 0.85em;
     }
 
     .c2 .choice-list .choice-btn {
         padding: 5px 10px;
         margin: 3px 0;
+        font-size: 0.8em;
     }
 
     .c2 .call-list {
