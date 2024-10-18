@@ -1,6 +1,7 @@
 @media only screen and (min-device-width: 375px) and (max-device-width: 890px) and (orientation: landscape) {
     html {
         font-size: 0.7em;
+        overflow: hidden;
     }
 
     .header {
