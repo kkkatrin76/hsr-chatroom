@@ -52,7 +52,7 @@ button {
 }
 
 .header {
-    padding: 20px 40px;
+    margin: 20px 40px;
     font-size: 1.3em;
     display: flex;
 }
