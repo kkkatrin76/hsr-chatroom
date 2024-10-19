@@ -44,6 +44,7 @@ function getName() {
         }
         localStorage.setItem("name", name);
     }
+    document.getElementById('your-name').innerHTML = name;
 
     if(window.innerHeight > window.innerWidth) {
         alertOrientation();
@@ -51,6 +52,11 @@ function getName() {
 
     initChats();
     constructChatList();
+}
+
+function changeName() {
+    localStorage.removeItem("name");
+    location.reload();
 }
 
 function initChats() {
