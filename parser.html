@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Parser</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<style>
+    @font-face {
+        font-family: hsrfont;
+        src: url("font/DIN_Medium.ttf");
+    }
+
+    html {
+        font-family: hsrfont;
+    }
+
+    body {
+        padding: 30px;
+        font-size: 1em;
+        background-color: #8e8e8e;
+    }
+
+    select, button, input {
+        font-family: hsrfont;
+        font-size: 1em;
+        padding: 5px 12px 3px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+
+    #main {
+        display: flex;
+    }
+
+    #wrapper {
+        width: 60%;
+    }
+
+    #selector, #form {
+        margin-bottom: 20px;
+    }
+
+    .form-wrapper {
+        margin-bottom: 10px;
+    }
+
+    .form-wrapper label {
+        width: 16%;
+        display: inline-block;
+    }
+    .form-wrapper input {
+        width: 70%;
+        display: inline-block;
+    }
+
+    #code {
+        width: 40%;
+        background-color: #000;
+        color: #fff;
+        padding: 20px;
+        line-height: 1.2;
+        font-family: monospace;
+        white-space: pre;
+    }
+
+    #version {
+        position: fixed;
+        font-size: 0.8em;
+        left: 10px;
+        bottom: 10px;
+        vertical-align: bottom;
+        text-align: start;
+        color: rgb(75, 75, 75);
+    }
+</style>
+
+<script src="parser.js"></script>
+
+<body onLoad="appendVersion(); init()">
+
+    <div id="main">
+        <div id="wrapper">
+            <div id="selector">
+                <select id="item-type" onchange="onChangeType()">
+                    <option value="timestamp">Timestamp</option>
+                    <option value="chat-text">Chat - Text</option>
+                    <option value="chat-emote">Chat - Emote</option>
+                    <option value="chat-pic">Chat - Pic</option>
+                    <option value="choice-text">Choice - Text</option>
+                    <option value="choice-emote">Choice - Emote</option>
+                    <option value="choice-pic">Choice - Pic</option>
+                    <option value="choice-call">Choice - Call</option>
+                    <option value="pause">Pause</option>
+                    <option value="notif">Notification</option>
+                    <option value="call">Call</option>
+                    <option value="call-end">Call - End</option>
+                    <option value="call-function">Call Function</option>
+                </select>
+                
+                <button onclick="appendItem()">Append</button>
+
+                <button onclick="copyCode()">Copy Code</button>
+            </div>
+
+            <div id="form">
+                <div id="content-wrapper" class="form-wrapper">
+                    <label>Content</label>
+                    <input type="text" id="content" name="content" />
+                </div>
+                <div id="emote-wrapper" class="form-wrapper">
+                    <label>Emote</label>
+                    <input type="text" id="emote" name="emote" value="emote/"/>
+                </div>
+                <div id="pic-wrapper" class="form-wrapper">
+                    <label>Pic</label>
+                    <input type="text" id="pic" name="pic" />
+                </div>
+                
+                <div id="call-wrapper" class="form-wrapper">
+                    <label>Call</label>
+                    <input type="text" id="call" name="call" />
+                </div>
+                
+                <div id="timeout-wrapper" class="form-wrapper">
+                    <label>Timeout</label>
+                    <input type="number" id="timeout" name="timeout" value="2000" min="0" step="500"/>
+                </div>
+                
+                <div id="showif-wrapper" class="form-wrapper">
+                    <label>Show If</label>
+                    <input type="text" id="showif" name="showif" />
+                </div>
+
+                <div id="choice-key-1-wrapper" class="form-wrapper">
+                    <label>Choice Key 1</label>
+                    <input type="text" id="choice-key-1" name="choice-key-1" />
+                </div>
+                <div id="choice-text-1-wrapper" class="form-wrapper">
+                    <label>Choice Text 1</label>
+                    <input type="text" id="choice-text-1" name="choice-text-1" />
+                </div>
+                <div id="choice-emote-1-wrapper" class="form-wrapper">
+                    <label>Choice Emote 1</label>
+                    <input type="text" id="choice-emote-1" name="choice-emote-1" />
+                </div>
+                <div id="choice-pic-1-wrapper" class="form-wrapper">
+                    <label>Choice Pic 1</label>
+                    <input type="text" id="choice-pic-1" name="choice-pic-1" />
+                </div>
+
+                <div id="choice-key-2-wrapper" class="form-wrapper">
+                    <label>Choice Key 2</label>
+                    <input type="text" id="choice-key-2" name="choice-key-2" />
+                </div>
+                <div id="choice-text-2-wrapper" class="form-wrapper">
+                    <label>Choice Text 2</label>
+                    <input type="text" id="choice-text-2" name="choice-text-2" />
+                </div>
+                <div id="choice-emote-2-wrapper" class="form-wrapper">
+                    <label>Choice Emote 2</label>
+                    <input type="text" id="choice-emote-2" name="choice-emote-2" />
+                </div>
+                <div id="choice-pic-2-wrapper" class="form-wrapper">
+                    <label>Choice Pic 2</label>
+                    <input type="text" id="choice-pic-2" name="choice-pic-2" />
+                </div>
+
+                <div id="choice-key-3-wrapper" class="form-wrapper">
+                    <label>Choice Key 3</label>
+                    <input type="text" id="choice-key-3" name="choice-key-3" />
+                </div>
+                <div id="choice-text-3-wrapper" class="form-wrapper">
+                    <label>Choice Text 3</label>
+                    <input type="text" id="choice-text-3" name="choice-text-3" />
+                </div>
+                <div id="choice-emote-3-wrapper" class="form-wrapper">
+                    <label>Choice Emote 3</label>
+                    <input type="text" id="choice-emote-3" name="choice-emote-3" />
+                </div>
+                <div id="choice-pic-3-wrapper" class="form-wrapper">
+                    <label>Choice Pic 3</label>
+                    <input type="text" id="choice-pic-3" name="choice-pic-3" />
+                </div>
+            </div>
+        </div>
+
+        <div id="code"></div>
+    </div>
+
+    <div id="version"></div>
+
+</body>
+</html>

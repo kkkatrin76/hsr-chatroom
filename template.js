@@ -74,6 +74,10 @@ function initChats() {
                 dir: "in",
                 content: ``
             }, {
+                type: "emote",
+                dir: "in",
+                content: `emote/xxx.png`
+            }, {
                 type: "choice",
                 content: [{
                     key: "x1-1",
@@ -93,7 +97,7 @@ function initChats() {
                 timeout: 6000
             }, {
                 type: "notif",
-                content: "Call started hh:mm",
+                content: `🦁 Ko Yuan 🧡 has poked you`,
                 timeout: 5000
             }, {
                 type: "notif",

@@ -44,7 +44,7 @@ button {
     width: 100%;
     z-index: 1;
     height: 100%;
-    background-image: url(bg/evening.jpg);
+    /* background-image: url(bg/midnight.jpg); */
     background-size: cover;
     background-position-x: center;
     background-position-y: center;
@@ -239,6 +239,7 @@ button {
     width: fit-content;
     color: rgb(137, 137, 137);
     align-content: center;
+    align-items: center;
     display: flex;
     font-size: 0.95em;
 }
@@ -266,16 +267,17 @@ button {
     border-radius: 50%;
     width: 70px;
     height: 70px;
-    object-fit: contain;
-    background-color: rgb(58,58,58);
+    object-fit: cover;
+    /* background-color: rgb(58,58,58); */
 }
 .c2 .chat-list .chat-bubble .char-name {
     font-size: 0.9em;
     color: rgb(101, 101, 101);
 }
 .c2 .chat-list .chat-bubble .message {
+    line-height: 1.5;
     background-color: #fff;
-    padding: 8px 15px;
+    padding: 10px 15px 5px;
     border-radius: 0 10px 10px 10px;
     margin: 5px 0;
     font-size: 1em;
