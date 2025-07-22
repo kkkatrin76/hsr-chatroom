@@ -237,7 +237,7 @@ button {
 .c2 .chat-list .chat-notif {
     margin: 15px auto;
     width: fit-content;
-    color: rgb(137, 137, 137);
+    color: #898989;
     align-content: center;
     align-items: center;
     display: flex;
