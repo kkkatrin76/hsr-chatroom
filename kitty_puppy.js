@@ -1,4 +1,4 @@
-const version = "1.03";
+const version = "1.04";
 const defaultTimeoutMs = 1500;
 const defaultChoiceTimeoutMs = 500;
 const defaultChoiceNextTimeoutMs = 1500;
