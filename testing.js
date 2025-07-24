@@ -1,4 +1,4 @@
-const version = "2.03";
+const version = "1.0";
 const defaultTimeoutMs = 1500;
 const defaultChoiceTimeoutMs = 2000;
 
@@ -26,12 +26,24 @@ function getBg() {
     let main = document.getElementById('main');
     let hours = new Date().getHours();
 
-    if (hours >= 6 && hours <= 12) {
-        main.style.backgroundImage = "url('bg/day.jpg')";
-    } else if (hours > 12 && hours <= 19) {
-        main.style.backgroundImage = "url('bg/evening.jpg')";
+    // if (hours >= 6 && hours <= 12) {
+    //     main.style.backgroundImage = "url('bg/day.jpg')";
+    // } else if (hours > 12 && hours <= 19) {
+    //     main.style.backgroundImage = "url('bg/evening.jpg')";
+    // } else {
+    //     main.style.backgroundImage = "url('bg/night.jpeg')";
+    // }
+
+    if (hours >= 0 && hours <= 5) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/midnight.png')"
+    } else if (hours > 5 && hours <= 9) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/morning.png')"
+    } else if (hours > 9 && hours <= 13) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/day.png')"
+    } else if (hours > 13 && hours <= 18) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/afternoon.png')"
     } else {
-        main.style.backgroundImage = "url('bg/night.jpg')";
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/night.png')"
     }
 }
 
@@ -55,226 +67,82 @@ function getName() {
 }
 
 function changeName() {
-    localStorage.removeItem("name");
-    location.reload();
+    name = prompt("Please enter your name", name);
+    if (!name || name == undefined || name === "null") {
+        name = "[name]";
+    }
+    localStorage.setItem("name", name);
+    document.getElementById('your-name').innerHTML = name;
 }
 
 function initChats() {
     chats = {
-        jingyuan: [
+        "jingyuan": [
             {
+                type: "ts",
+                content: "21:21",
+                timeout: 500
+            }, {
                 type: "text",
                 dir: "in",
-                content: `pspspsps`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `${name}?`,
-            },
-            {
-                type: "notif",
-                dir: "in",
-                content: `🦁 Ko Yuan 🧡 has poked you`,
-            },
-            {
-                type: "notif",
-                dir: "in",
-                content: `🦁 Ko Yuan 🧡 has poked you`,
-            },
-            {
-                type: "notif",
-                dir: "in",
-                content: `🦁 Ko Yuan 🧡 has poked you`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `${name}`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `${name}`,
-                timeout: 4000
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Meow?`
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "jy1-1",
-                        text: "m. meow?"
-                    },
-                    {
-                        key: "jy1-2",
-                        text: "???"
-                    }
-                ],
-            },
-            {
-                type: "emote",
-                dir: "in",
-                content: `emote/jingyuan2.png`
-            },
-            {
-                type: "emote",
-                dir: "in",
-                content: `emote/jingyuan5.png`
-            },
+                content: `asdasd`
+            // }, {
+            //     type: "choice",
+            //     content: [{
+            //         key: "x1-1",
+            //         text: ""
+            //     }, {
+            //         key: "x1-2",
+            //         text: ""
+            //     }]
+            // }, {
+            //     type: "emote",
+            //     dir: "in",
+            //     content: `emote/xxx.png`
+            // }, {
+            //     type: "choice",
+            //     content: [{
+            //         key: "x1-1",
+            //         text: ""
+            //     }, {
+            //         key: "x1-2",
+            //         text: ""
+            //     }],
+            //     showif: ""
+            // }, {
+            //     type: "text",
+            //     dir: "in",
+            //     content: ``,
+            //     showif: ""
+            // }, {
+            //     type: "pause",
+            //     timeout: 6000
+            // }, {
+            //     type: "notif",
+            //     content: `🦁 Ko Yuan 🧡 has poked you`,
+            //     timeout: 5000
+            // }, {
+            //     type: "notif",
+            //     content: "Call ended xh xm"
+            // }, {
+            //     type: "call",
+            //     dir: "in",
+            //     content: ``
+            // }, {
+            //     type: "call-audio",
+            //     content: ``,
+            //     timeout: 5000
+            // }, {
+            //     type: "callfunc",
+            //     funcname: `changeCallIconStatus`,
+            //     funcparams: [],
+            //     functimeout: 5000
+            }, {
+                type: "callfunc",
+                funcname: `editPrevChat`,
+                content: `I mean hello`
+            }
         ],
-        blade: [
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b1-1",
-                        text: "meow"
-                    }
-                ],
-            },
-            {
-                type: "pause",
-                timeout: 3000
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b2-1",
-                        text: "meow?"
-                    }
-                ],
-            },
-            {
-                type: "pause",
-                timeout: 1000
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b3-1",
-                        text: "MEOW!!!!!!!!!!!"
-                    }
-                ],
-            },
-            {
-                type: "emote",
-                dir: "in",
-                content: `emote/blade4.png`
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `What now`,
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b4-1",
-                        text: "i 💙 u"
-                    }
-                ],
-            },
-            {
-                type: "pause",
-                timeout: 3000
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Ok`,
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b5-1",
-                        emote: "emote/tuskpir1.png"
-                    },
-                    {
-                        key: "b5-2",
-                        emote: "emote/pompom1.png"
-                    }
-                ],
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Alright, alright`,
-                timeout: 4000
-            },
-            {
-                type: "emote",
-                dir: "in",
-                content: `emote/pompom2.png`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Does that suffice?`,
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "b6-1",
-                        emote: "emote/pompom3.png"
-                    }
-                ],
-            },
-        ],
-        sunday: [
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "su1-1",
-                        text: "have your feathers molted yet?"
-                    }
-                ],
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Indeed it has.`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `In fact, they <i>just</i> did.`,
-            },
-            {
-                type: "choice",
-                content: [
-                    {
-                        key: "su2-1",
-                        text: "be there in an hour to pamper my favorite halovian ❤️"
-                    }
-                ],
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `Oh my. Well, if it isn't too much of a trouble, that would be lovely.`,
-            },
-            {
-                type: "text",
-                dir: "in",
-                content: `I'll have your favorite snacks prepared.`,
-            },
-            {
-                type: "emote",
-                dir: "in",
-                content: `emote/sunday1.png`,
-            },
-        ]
     }
 
     initChars();
@@ -286,28 +154,12 @@ function initChars() {
     chars = [
         {
             key: "jingyuan",
-            name: "🦁 Ko Yuan 🧡",
-            pfp: "pfp/jingyuan1.png",
-            chatpfp: "pfp/jingyuan1.png",
-            signature: "A good day for a nap...",
+            name: "Yuan🦁Yuan",
+            signature: `I'm not at the Seat of Divine Foresight or with ${name}`,
+            pfp: "pfp/jingyuan1.gif",
+            chatpfp: "pfp/jingyuan2.png",
             chats: JSON.parse(JSON.stringify(chats.jingyuan))
-        },
-        {
-            key: "blade",
-            name: "🗡️ my sad little meow meow 🐈‍⬛",
-            pfp: "pfp/blade1.png",
-            chatpfp: "pfp/blade1.png",
-            signature: "",
-            chats: JSON.parse(JSON.stringify(chats.blade))
-        },
-        {
-            key: "sunday",
-            name: "🐓🪽😇",
-            pfp: "pfp/sunday1.png",
-            chatpfp: "pfp/sunday1.png",
-            signature: "If you are born weak, which god should you turn to for solace?",
-            chats: JSON.parse(JSON.stringify(chats.sunday))
-        },
+        }
     ];
 
     chars.sort((a, b) => {
@@ -347,33 +199,22 @@ function selectCharacter(charKey) {
     onSelectCharacter();
 }
 
-function changeBg() {
-    let main = document.getElementById('main');
-
-    main.style.backgroundImage = `url('bg/unreadmessages/${char.key}.jpeg')`;
-}
-function callChangeBg({ path }) {
-    let main = document.getElementById('main');
-
-    main.style.backgroundImage = `url(${path})`;
-}
-
 function onSelectCharacter() {
+    document.getElementById('c2').classList.remove("unselected");
+    document.getElementById('chat-unselected').classList.add("hidden");
+    document.getElementById('chat-info').classList.remove("hidden");
+    document.getElementById('chat-list-wrapper').classList.remove("hidden");
+
     initChars();
-    
+
     clearInterval(playChat);
     clearTimeout(playTimeout);
 
     resetTimer();
     // console.log({char})
 
-    document.getElementById('chat-unselected').classList.add("hidden");
-    document.getElementById('chat-info').classList.remove("hidden");
-    document.getElementById('chat-list-wrapper').classList.remove("hidden");
-    document.getElementById('c2').classList.remove("unselected");
-
     document.getElementById('chat-name').innerHTML = char.name;
-    document.getElementById('chat-signature').innerHTML = char.signature.length > 0 ? char.signature : "No signature.";
+    document.getElementById('chat-signature').innerHTML = char.signature;
 
     chatHTML = "";
     callHTML = "";
@@ -401,7 +242,6 @@ function constructChatList() {
                 <button onclick="selectCharacter('${c.key}')">
                     <img class="char-pic" src="${c.pfp}"></img>
                     <div class="char-name">${c.name}</div>
-                    <img class="char-arrow" src="icons/chevron.svg" />
                 </button>
             </div>
         `;
@@ -472,8 +312,6 @@ function appendChatHistory(index) {
         }
     }
 
-    let choiceIsEmote = false;
-
     switch (chat.type) {
         case "ts":
             chatHTML += `
@@ -484,7 +322,7 @@ function appendChatHistory(index) {
 
         case "notif":
             chatHTML += `
-                <div class="chat-notif"><img src="${chat.icon ? chat.icon : "icons/warning.svg"}" /><span>${chat.content}</span></div>
+                <div class="chat-notif">${chat.content}</div>
             `;
             timeoutMs = chat.timeout !== undefined ? chat.timeout : defaultTimeoutMs;
             break;
@@ -502,8 +340,13 @@ function appendChatHistory(index) {
                             <div class="char-name">${char.name}</div>
                 `;
 
+                let editHTML = ``;
+                if (chat.edited) {
+                    editHTML = ` <span class="edited">(edited)</span>`;
+                }
+
                 if (chat.type === "text") {
-                    chatHTML += `<div class="message">${chat.content}</div>`;
+                    chatHTML += `<div class="message">${chat.content}${editHTML}</div>`;
                 } else if (chat.type === "emote") {
                     chatHTML += `<img class="emote" src="${chat.content}"></img>`;
                 } else if (chat.type === "pic") {
@@ -575,7 +418,6 @@ function appendChatHistory(index) {
                 if (c.text) {
                     choiceHTML += `<button class="choice-btn" onclick="selectChoice('${c.key}')">${c.text}</button>`;
                 } else if (c.emote) {
-                    choiceIsEmote = true;
                     choiceHTML += `<button class="choice-btn emote" onclick="selectChoice('${c.key}')"><img src="${c.emote}"></img></button>`;
                 } else if (c.pic) {
                     choiceHTML += `<button class="choice-btn emote" onclick="selectChoice('${c.key}')"><img src="${c.pic}"></img></button>`;
@@ -601,18 +443,15 @@ function appendChatHistory(index) {
                 } else {
                     changeCallIconStatus(chat.funcparams);
                 }
+            } else if (chat.funcname === "editPrevChat") {
+                chatHTML = chatHTML.replace(
+                    `<div class="message">${char.chats[index-1].content}</div>`,
+                    `<div class="message">${chat.content} <span class="edited">(edited)</span></div>`,
+                )
+                char.chats[index-1].content = chat.content;
+                char.chats[index-1].edited = true;
             }
-            if (chat.funcname === "changeBg") {
-                if (chat.timeout) {
-                    let funcTimeout = setTimeout(() => {
-                        callChangeBg(chat.funcparams);
-                        clearTimeout(funcTimeout);
-                    }, chat.timeout);
-                } else {
-                    changeCallIconStatus(chat.funcparams);
-                }
-            }
-            break
+            break;
     }
 
     let chatListDiv = document.getElementById('chat-list');
@@ -627,26 +466,18 @@ function appendChatHistory(index) {
     // hide or show chat list or choice list accordingly
     if (choiceHTML) {
         playTimeout = setTimeout(() => {
-            if (choiceIsEmote) {
-                choiceListDiv.classList.add("flex");
-            }
-            callListDiv.classList.add("hidden");
+            // chatListDiv.classList.add("hidden");
+            // callListDiv.classList.add("hidden");
             choiceListDiv.classList.remove("hidden");
-
-            // scroll chat list to the bottom and choice list to the top
             chatListDiv.scrollTop = chatListDiv.scrollHeight;
             callListDiv.scrollTop = callListDiv.scrollHeight;
-            choiceListDiv.scrollTop = 0;
-            
             clearTimeout(playTimeout);
         }, timeoutMs);
     } else if (callHTML) {
-        choiceListDiv.classList.remove("flex");
         chatListDiv.classList.add("hidden");
         callListDiv.classList.remove("hidden");
         choiceListDiv.classList.add("hidden");
     } else if (chatHTML) {
-        choiceListDiv.classList.remove("flex");
         chatListDiv.classList.remove("hidden");
         callListDiv.classList.add("hidden");
         choiceListDiv.classList.add("hidden");
@@ -666,7 +497,7 @@ function appendChatHistory(index) {
 }
 
 function appendEnding() {
-    chatHTML += `<div class="chat-notif"><img src="icons/offline.svg" /><span>Your friend ${char.name} is offline</span></div>`;
+    chatHTML += `<div class="chat-notif">- This chat has ended -</div>`;
 
     playTimeout = setTimeout(() => {
         let chatListDiv = document.getElementById('chat-list');

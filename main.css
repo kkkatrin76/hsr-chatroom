@@ -44,10 +44,9 @@ button {
     width: 100%;
     z-index: 1;
     height: 100%;
-    /* background-image: url(bg/midnight.jpg); */
-    background-size: cover;
-    background-position-x: center;
-    background-position-y: center;
+    background-size: cover !important;
+    background-position-x: center !important;
+    background-position-y: center !important;
     overflow: hidden;
 }
 
@@ -283,6 +282,11 @@ button {
     font-size: 1em;
     width: fit-content;
     box-shadow: -1px 2px rgb(145, 145, 145);
+}
+.c2 .chat-list .chat-bubble .edited {
+    color: rgb(101, 101, 101);
+    font-size: 0.6em;
+    margin-left: 5px;
 }
 .c2 .chat-list .chat-bubble .emote {
     height: 100px;

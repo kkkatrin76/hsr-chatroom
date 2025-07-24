@@ -26,12 +26,24 @@ function getBg() {
     let main = document.getElementById('main');
     let hours = new Date().getHours();
 
-    if (hours >= 6 && hours <= 12) {
-        main.style.backgroundImage = "url('bg/day.jpeg')";
-    } else if (hours > 12 && hours <= 19) {
-        main.style.backgroundImage = "url('bg/evening.jpg')";
+    // if (hours >= 6 && hours <= 12) {
+    //     main.style.backgroundImage = "url('bg/old/day.jpg')";
+    // } else if (hours > 12 && hours <= 19) {
+    //     main.style.backgroundImage = "url('bg/old/evening.jpg')";
+    // } else {
+    //     main.style.backgroundImage = "url('bg/old/night.jpeg')";
+    // }
+
+    if (hours >= 0 && hours <= 5) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/midnight.png')"
+    } else if (hours > 5 && hours <= 9) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/morning.png')"
+    } else if (hours > 9 && hours <= 13) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/day.png')"
+    } else if (hours > 13 && hours <= 18) {
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/afternoon.png')"
     } else {
-        main.style.backgroundImage = "url('bg/night.jpeg')";
+        main.style.background = "linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.55)), url('bg/night.png')"
     }
 }
 
@@ -44,6 +56,7 @@ function getName() {
         }
         localStorage.setItem("name", name);
     }
+    document.getElementById('your-name').innerHTML = name;
 
     if(window.innerHeight > window.innerWidth) {
         alertOrientation();
@@ -53,63 +66,86 @@ function getName() {
     constructChatList();
 }
 
+function changeName() {
+    name = prompt("Please enter your name", name);
+    if (!name || name == undefined || name === "null") {
+        name = "[name]";
+    }
+    localStorage.setItem("name", name);
+    document.getElementById('your-name').innerHTML = name;
+}
+
 function initChats() {
     chats = {
-        "charkey": [
+        "jingyuan": [
             {
                 type: "ts",
                 content: "",
                 timeout: 500
             }, {
-                type: "choice",
-                content: [{
-                    key: "x1-1",
-                    text: ""
-                }, {
-                    key: "x1-2",
-                    text: ""
-                }]
+                type: "text",
+                dir: "in",
+                content: `asdasd`,
+                edited: true
             }, {
                 type: "text",
                 dir: "in",
                 content: ``
+            // }, {
+            //     type: "choice",
+            //     content: [{
+            //         key: "x1-1",
+            //         text: ""
+            //     }, {
+            //         key: "x1-2",
+            //         text: ""
+            //     }]
+            // }, {
+            //     type: "emote",
+            //     dir: "in",
+            //     content: `emote/xxx.png`
+            // }, {
+            //     type: "choice",
+            //     content: [{
+            //         key: "x1-1",
+            //         text: ""
+            //     }, {
+            //         key: "x1-2",
+            //         text: ""
+            //     }],
+            //     showif: ""
+            // }, {
+            //     type: "text",
+            //     dir: "in",
+            //     content: ``,
+            //     showif: ""
+            // }, {
+            //     type: "pause",
+            //     timeout: 6000
+            // }, {
+            //     type: "notif",
+            //     content: `🦁 Ko Yuan 🧡 has poked you`,
+            //     timeout: 5000
+            // }, {
+            //     type: "notif",
+            //     content: "Call ended xh xm"
+            // }, {
+            //     type: "call",
+            //     dir: "in",
+            //     content: ``
+            // }, {
+            //     type: "call-audio",
+            //     content: ``,
+            //     timeout: 5000
+            // }, {
+            //     type: "callfunc",
+            //     funcname: `changeCallIconStatus`,
+            //     funcparams: [],
+            //     functimeout: 5000
             }, {
-                type: "emote",
-                dir: "in",
-                content: `emote/xxx.png`
-            }, {
-                type: "choice",
-                content: [{
-                    key: "x1-1",
-                    text: ""
-                }, {
-                    key: "x1-2",
-                    text: ""
-                }],
-                showif: ""
-            }, {
-                type: "text",
-                dir: "in",
-                content: ``,
-                showif: ""
-            }, {
-                type: "pause",
-                timeout: 6000
-            }, {
-                type: "notif",
-                content: `🦁 Ko Yuan 🧡 has poked you`,
-                timeout: 5000
-            }, {
-                type: "notif",
-                content: "Call ended xh xm"
-            }, {
-                type: "call",
-                dir: "in",
-                content: ``
-            }, {
-                type: "call-audio",
-                content: ``,
-                timeout: 5000
+                type: "callfunc",
+                funcname: `editPrevChat`,
+                content: 5000
             }
         ],
     }
@@ -122,12 +158,13 @@ function initChars() {
     // deep clone here so original chats stays intact
     chars = [
         {
-            key: "zhongli",
-            name: "My Beloved 🧡",
-            pfp: "pfp/zhongli3.gif",
-            chatpfp: "pfp/zhongli3.jpg",
-            chats: JSON.parse(JSON.stringify(chats.zhongli))
-        },
+            key: "jingyuan",
+            name: "Yuan🦁Yuan",
+            signature: `I'm not at the Seat of Divine Foresight or with ${name}`,
+            pfp: "pfp/jingyuan1.gif",
+            chatpfp: "pfp/jingyuan2.png",
+            chats: JSON.parse(JSON.stringify(chats.jingyuan))
+        }
     ];
 
     chars.sort((a, b) => {
@@ -302,8 +339,13 @@ function appendChatHistory(index) {
                             <div class="char-name">${char.name}</div>
                 `;
 
+                let editHTML = ``;
+                if (chat.edited) {
+                    editHTML = ` <span class="edited">(edited)</span>`;
+                }
+
                 if (chat.type === "text") {
-                    chatHTML += `<div class="message">${chat.content}</div>`;
+                    chatHTML += `<div class="message">${chat.content}${editHTML}</div>`;
                 } else if (chat.type === "emote") {
                     chatHTML += `<img class="emote" src="${chat.content}"></img>`;
                 } else if (chat.type === "pic") {
@@ -400,8 +442,15 @@ function appendChatHistory(index) {
                 } else {
                     changeCallIconStatus(chat.funcparams);
                 }
+            } else if (chat.funcname === "editPrevChat") {
+                chatHTML = chatHTML.replace(
+                    `<div class="message">${char.chats[index-1].content}</div>`,
+                    `<div class="message">${chat.content} <span class="edited">(edited)</span></div>`,
+                )
+                char.chats[index-1].content = chat.content;
+                char.chats[index-1].edited = true;
             }
-            break
+            break;
     }
 
     let chatListDiv = document.getElementById('chat-list');
@@ -416,9 +465,11 @@ function appendChatHistory(index) {
     // hide or show chat list or choice list accordingly
     if (choiceHTML) {
         playTimeout = setTimeout(() => {
-            chatListDiv.classList.add("hidden");
-            callListDiv.classList.add("hidden");
+            // chatListDiv.classList.add("hidden");
+            // callListDiv.classList.add("hidden");
             choiceListDiv.classList.remove("hidden");
+            chatListDiv.scrollTop = chatListDiv.scrollHeight;
+            callListDiv.scrollTop = callListDiv.scrollHeight;
             clearTimeout(playTimeout);
         }, timeoutMs);
     } else if (callHTML) {

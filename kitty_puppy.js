@@ -79,64 +79,6 @@ function changeName() {
 
 function initChats() {
     chats = {
-        // "charkey": [
-        //     {
-        //         type: "ts",
-        //         content: "",
-        //         timeout: 500
-        //     }, {
-        //         type: "choice",
-        //         content: [{
-        //             key: "x1-1",
-        //             text: ""
-        //         }, {
-        //             key: "x1-2",
-        //             text: ""
-        //         }],
-        //         timeout: 500     // show this chat in {{timeout}} ms
-        //     }, {
-        //         type: "text",
-        //         dir: "in",
-        //         content: ``      // timeout for NEXT chat
-        //     }, {
-        //         type: "emote",
-        //         dir: "in",
-        //         content: `emote/xxx.png`
-        //     }, {
-        //         type: "choice",
-        //         content: [{
-        //             key: "x1-1",
-        //             text: ""
-        //         }, {
-        //             key: "x1-2",
-        //             text: ""
-        //         }],
-        //         showif: ""
-        //     }, {
-        //         type: "text",
-        //         dir: "in",
-        //         content: ``,
-        //         showif: ""
-        //     }, {
-        //         type: "pause",
-        //         timeout: 6000
-        //     }, {
-        //         type: "notif",
-        //         content: `🦁 Ko Yuan 🧡 has poked you`,
-        //         timeout: 5000
-        //     }, {
-        //         type: "notif",
-        //         content: "Call ended xh xm"
-        //     }, {
-        //         type: "call",
-        //         dir: "in",
-        //         content: ``
-        //     }, {
-        //         type: "call-audio",
-        //         content: ``,
-        //         timeout: 5000
-        //     }
-        // ],
         blade: [{
             type: "ts",
             content: "15:43",
@@ -366,7 +308,7 @@ function initChats() {
         }, {
             showif: "b1-2-3",
             type: "notif",
-            content: "You sent a photo attachment",
+            content: `${name} sent a photo attachment`,
             timeout: 5000
         }, {
             showif: "b1-2-3",
@@ -964,7 +906,7 @@ function initChats() {
         }, {
             showif: "p1-1-3",
             type: "notif",
-            content: "Phainon sent you an audio message"
+            content: `💙💛💙 Snowy 💛💙💛 sent you an audio message`
         }, {
             showif: "p1-1-3",
             type: "notif",
@@ -983,7 +925,7 @@ function initChats() {
         }, {
             showif: "p1-1-4",
             type: "notif",
-            content: "Phainon sent you an audio message"
+            content: "💙💛💙 Snowy 💛💙💛 sent you an audio message"
         }, {
             showif: "p1-1-4",
             type: "notif",
@@ -1095,7 +1037,7 @@ function initChats() {
         }, {
             showif: "p1-2-3",
             type: "notif",
-            content: "Phainon is offline"
+            content: "💙💛💙 Snowy 💛💙💛 is offline"
         }, {
             showif: "p1-2-3",
             type: "choice",
@@ -1106,7 +1048,7 @@ function initChats() {
         }, {
             showif: "p1-2-4",
             type: "notif",
-            content: "Phainon is offline"
+            content: "💙💛💙 Snowy 💛💙💛 is offline"
         }, {
             showif: "p1-2-4",
             type: "choice",
@@ -1117,7 +1059,7 @@ function initChats() {
         }, {
             showif: "p1-2-5",
             type: "notif",
-            content: "Phainon is offline"
+            content: "💙💛💙 Snowy 💛💙💛 is offline"
         }, {
             showif: "p1-2-5",
             type: "choice",
@@ -1128,7 +1070,7 @@ function initChats() {
         }, {
             showif: "p1-2-6",
             type: "notif",
-            content: "Phainon is offline"
+            content: "💙💛💙 Snowy 💛💙💛 is offline"
         }, {
             showif: "p1-2-6",
             type: "choice",
@@ -1468,7 +1410,7 @@ function appendChatHistory(index) {
                     changeCallIconStatus(chat.funcparams);
                 }
             }
-            break
+            break;
     }
 
     let chatListDiv = document.getElementById('chat-list');
