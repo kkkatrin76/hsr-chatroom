@@ -248,6 +248,13 @@ button {
     height: 22px;
     margin-top: -1px;
 }
+.c2 .chat-list .chat-end {
+    border-bottom: solid 2px #b7b7b7;
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding-bottom: 20px;
+}
 
 .c2 .chat-list .chat-bubble {
     display: flex;

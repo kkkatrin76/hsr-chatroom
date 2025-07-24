@@ -497,7 +497,7 @@ function appendChatHistory(index) {
 }
 
 function appendEnding() {
-    chatHTML += `<div class="chat-notif">- This chat has ended -</div>`;
+    chatHTML += `<div class="chat-notif chat-end"></div>`;
 
     playTimeout = setTimeout(() => {
         let chatListDiv = document.getElementById('chat-list');
