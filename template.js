@@ -590,6 +590,33 @@ function resetTimer() {
     document.getElementById('call-timer').classList.add("hidden");
 }
 
+// Misc. functions
+function formatTsFromADate(date, operator, day) {
+    if (day === 1 && operator === "-") {
+        return "Yesterday";
+    }
+
+    if (!date) {
+        date = new Date();
+    } else {
+        date = new Date(date);
+    }
+
+    if (!operator || !day || day === 0) {
+        return `${date.getHours() >= 10 ? date.getHours() : "0" + date.getHours()}:${date.getMinutes() >= 10 ? date.getMinutes() : "0" + date.getMinutes()}`;
+    }
+
+    if (operator === "+") {
+        date.setDate(date.getDate() + day);
+    } else if (operator === "-") {
+        date.setDate(date.getDate() - day);
+    }
+
+    const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+    return `${date.getDate()} ${monthNames[date.getMonth()]} ${date.getFullYear()}`;
+}
+
 // Mobile device alert
 var warned = false;
 var supportsOrientationChange = "onorientationchange" in window,
