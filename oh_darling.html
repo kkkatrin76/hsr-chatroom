@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>Room: Testing</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="main_mobile.css">
+
+<script src="oh_darling.js"></script>
+
+<body onLoad="getBg(); getName(); appendVersion()">
+    
+    <div id="main" class="main">
+
+        <div id="header" class="header">
+            <img src="icons/messages.png" />
+            <div class="subtext">Messages</div>
+            <div class="name-change">Hello, <span id="your-name"></span>! <span id="name-change-btn" onclick="changeName()"><u>(not you?)</u></span></div>
+        </div>
+
+        <div id="content" class="content">
+            <div class="c1">
+                <div id="char-list"></div>
+            </div>
+
+            <div class="c2-shadow"></div>
+            <div id="c2" class="c2 unselected">
+                <div id="chat-unselected" class="chat-unselected">
+                    <img src="icons/train.svg" />
+                    <div>Please select a contact</div>
+                </div>
+
+                <div id="chat-info" class="chat-info hidden">
+                    <div id="chat-name" class="chat-name"></div>
+                    <div id="chat-signature" class="chat-signature"></div>
+                </div>
+
+                <div id="chat-list-wrapper" class="chat-list-wrapper hidden">
+                    <div id="chat-list" class="chat-list"></div>
+
+                    <div id="call-timer" class="call-timer hidden">
+                        <span id="timer-min">00</span>:<span id="timer-sec">00</span>
+                    </div>
+                    <div id="call-list" class="call-list hidden"></div>
+
+                    <div id="choice-list" class="choice-list hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="footer">
+            <div id="version"></div>
+            <div class="credits">
+                <div><a target=_blank href="https://hsr.hoyoverse.com/en-us/">Honkai:Star Rail</a> (c) <a target=_blank href="https://www.hoyoverse.com/en-us/">Hoyoverse</a></div>
+                <div>Assets (c) Hoyoverse, thanks to <a target=_blank href="https://www.tumblr.com/the-astral-express-archive">@the-astral-express-archive</a></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -100,7 +100,7 @@ function initChats() {
             type: "choice",
             content: [{
                 key: "b1-1-1",
-                text: "pspspspspspspsps"
+                text: "pspspspspspspsps MY PUPPY WHERE ARE YOU"
             }],
             timeout: 500
         }, {
@@ -116,20 +116,20 @@ function initChats() {
             type: "choice",
             content: [{
                 key: "b1-1-3",
-                text: "BLADE I NEED ENRICHMENT"
+                text: `BLADIE YOUR ${name.toUpperCase()} DEMAND ENRICHMENT`
             }],
             timeout: 2000
         }, {
             showif: "b1-1-3",
             type: "text",
             dir: "in",
-            content: `I doubt "good" is a suitable adjective to use here`,
+            content: `Firstly. I doubt "good" is a suitable adjective to use here`,
             timeout: 3000
         }, {
             showif: "b1-1-3",
             type: "text",
             dir: "in",
-            content: `If anything you are most definitely the puppy here, with that level of attention-seeking`,
+            content: `With that level of attention-seeking, it's clear that I'm not the puppy in this accursed arrangement`,
             timeout: 4000
         }, {
             showif: "b1-1-3",
@@ -164,7 +164,7 @@ function initChats() {
             showif: "b1-1-6",
             type: "text",
             dir: "in",
-            content: `Stop.`,
+            content: `Cease.`,
             timeout: 4000
         }, {
             showif: "b1-1-6",
@@ -649,7 +649,8 @@ function initChats() {
             showif: "m1-1-2",
             type: "text",
             dir: "in",
-            content: "........."
+            content: ".........",
+            timeout: 4000
         }, {
             showif: "m1-1-2",
             type: "text",
@@ -666,7 +667,7 @@ function initChats() {
             showif: "m1-1-4",
             type: "text",
             dir: "in",
-            content: `I wasn't sulking.`
+            content: `A foolish thought. I was not sulking.`
         }, {
             showif: ["m1-1-3", "m1-1-4"],
             type: "text",
@@ -837,7 +838,7 @@ function initChats() {
             showif: "m1-2-11",
             type: "text",
             dir: "in",
-            content: "Bring me an extra water bottle."
+            content: "Bring me a few extra waterskins."
         }],
 
         phainon: [{
@@ -989,7 +990,12 @@ function initChats() {
             showif: "p1-2-1",
             type: "text",
             dir: "in",
-            content: `If we were both chimeras, do you think we'd have a happy little chimera family?`
+            content: `If we were both chimeras, do you think we'd have a happy little chimera family after the Era Nova?`
+        }, {
+            showif: "p1-2-1",
+            type: "text",
+            dir: "in",
+            content: `That'd be nice...`
         }, {
             showif: "p1-2-1",
             type: "choice",
@@ -1036,10 +1042,6 @@ function initChats() {
             content: `.........`
         }, {
             showif: "p1-2-3",
-            type: "notif",
-            content: "💙💛💙 Snowy 💛💙💛 is offline"
-        }, {
-            showif: "p1-2-3",
             type: "choice",
             content: [{
                 key: "p1-2-4",
@@ -1080,14 +1082,22 @@ function initChats() {
             }]
         }, {
             showif: "p1-2-7",
-            type: "text",
-            dir: "in",
-            content: `Coming back home in 30 with a gift for you`
+            type: "notif",
+            content: "💙💛💙 Snowy 💛💙💛 is offline"
+        }, {
+            showif: "p1-2-7",
+            type: "pause",
+            timeout: 4000
         }, {
             showif: "p1-2-7",
             type: "text",
             dir: "in",
-            content: `Could you make sure we have milk and berries in the fridge I think they're a little peckish`
+            content: `Coming back home in 30 mins with a gift for you`
+        }, {
+            showif: "p1-2-7",
+            type: "text",
+            dir: "in",
+            content: `Could you make sure we have milk and berries in the fridge I think our new baby is a little peckish`
         }],
     }
 
@@ -1117,7 +1127,7 @@ function initChars() {
         {
             key: "mydei",
             name: "👑💪🏻",
-            signature: `No, I don't know where ${name} is.`,
+            signature: `📍 Training`,
             pfp: "pfp/mydei1.gif",
             chatpfp: "pfp/mydei2.png",
             chats: JSON.parse(JSON.stringify(chats.mydei))
